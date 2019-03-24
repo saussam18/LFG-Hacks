@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:city_finder/home.dart';
 import 'package:city_finder/start.dart';
 import 'package:flutter/material.dart';
 import 'package:intro_views_flutter/Models/page_view_model.dart';
@@ -36,10 +37,10 @@ class Intro extends StatelessWidget {
       ),
       textStyle: TextStyle(fontFamily: 'MyFont', color: Colors.white),
     ),
-    PageViewModel(
+  PageViewModel(
       pageColor: const Color(0xFF607D8B),
       body: Text(
-        'Businesses find you for a job',
+        'Businesses find you žfor a job zzfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff',
       ),
       title: Text('Businesses'),
       mainImage: Image.asset(
@@ -67,7 +68,7 @@ class Intro extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => Start(),
+                      builder: (context) => SwipeFeedPage(),
                     ), //MaterialPageRoute
                   );
                 },

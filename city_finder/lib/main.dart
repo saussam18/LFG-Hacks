@@ -1,4 +1,5 @@
 import 'package:city_finder/Intro.dart';
+import 'package:city_finder/home.dart';
 import 'package:flutter/material.dart';
 
 /* This is the main function that runs the app...basically do not touch  */

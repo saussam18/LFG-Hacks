@@ -1,4 +1,5 @@
 import 'package:city_finder/backgrounds.dart';
+import 'package:city_finder/home.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -51,7 +52,12 @@ class _StartPageState extends State<Start> {
                     RaisedButton(
                       child: Text('NEXT'),
                       onPressed: (){
-                        
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SwipeFeedPage(),
+                          ), //MaterialPageRoute
+                        );
                       }
                     )
                   ],
