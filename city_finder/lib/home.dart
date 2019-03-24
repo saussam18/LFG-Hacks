@@ -6,16 +6,10 @@ PageController _pageController;
 City city = new City();
 
 class City {
-  final String name = "Minniapolis";
+  final String name = "Minneapolis";
   final String description = "Located in mid-eastern Minnesota, Minneapolis is the largest city in the state, and is a part of the Twin Cities area, along with the state's capital, St. Paul."
       " As the urban center of The Land of 10,000 Lakes, Minneapolis is "
       "known for its lakes and parks, along with its culture and art scenes.";
-  final images = [
-    "Mpls.jpeg"
-  ];
-  final tags = [
-    "Young", "Midwest", "Late Night"
-  ];
 }
 class SwipeFeedPage extends StatefulWidget
 {
@@ -42,7 +36,11 @@ class _SwipeFeedPageState extends State<SwipeFeedPage> with TickerProviderStateM
           appBar: new AppBar(
             elevation: 0.0,
             centerTitle: true,
-            backgroundColor: Colors.blue.shade600,
+            title: new Padding(
+                child: Image.asset('assets/Homwords.png', scale: 0.5),
+                padding: EdgeInsets.all(8.0),
+            ),
+            backgroundColor: Color.fromRGBO(36, 135, 195, 1.0),
             leading: new IconButton
               (
                 onPressed: () {
@@ -52,7 +50,7 @@ class _SwipeFeedPageState extends State<SwipeFeedPage> with TickerProviderStateM
                       builder: (context) => ListPage(),
                     ), //MaterialPageRoute
                   );                },
-                icon: new Icon(Icons.settings, color: Colors.orange.shade400)
+                icon: new Icon(Icons.local_offer, color: Color.fromRGBO(255, 120, 0, 1.0))
             ),
             actions: <Widget>
             [
@@ -66,7 +64,7 @@ class _SwipeFeedPageState extends State<SwipeFeedPage> with TickerProviderStateM
                       ), //MaterialPageRoute
                     );
                   },
-                  icon: new Icon(Icons.chat_bubble, color: Colors.orange.shade400)
+                  icon: new Icon(Icons.chat_bubble, color: Color.fromRGBO(255, 120, 0, 1.0))
               ),
             ],
           ),
@@ -154,30 +152,35 @@ class _SwipeFeedPageState extends State<SwipeFeedPage> with TickerProviderStateM
     );
   }
   _buildProductImagesWidgets() {
-    TabController imagesController = TabController(length: 3, vsync: this);
+    TabController imagesController = TabController(length: 8, vsync: this);
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Container(
         height: 250.0,
         child: Center(
           child: DefaultTabController(
-            length: 3,
+            length: 8,
             child: Stack(
               children: <Widget>[
                 TabBarView(
                   controller: imagesController,
                   children: <Widget>[
-                    Image.asset("assets/Mpls.jpeg"),
+                    Image.asset("assets/mpls3.jpg"),
                     Image.asset("assets/mplsnite.jpg"),
-                    Image.asset("assets/person.png"),
+                    Image.asset("assets/Mpls.jpeg"),
+                    Image.asset("assets/mpls1.jpg"),
+                    Image.asset("assets/mpls2.jpg"),
+                    Image.asset("assets/mpls4.jpg"),
+                    Image.asset("assets/mpls5.jpg"),
+                    Image.asset("assets/mpls6.jpeg"),
                   ],
                 ),
                 Container(
                   alignment: FractionalOffset(0.5, 0.95),
                   child: TabPageSelector(
                     controller: imagesController,
-                    selectedColor: Colors.grey,
-                    color: Colors.white,
+                    selectedColor: Color.fromRGBO(255, 120, 0, 1.0),
+                    color: Color.fromRGBO(36, 135, 195, 1.0),
                   ),
                 )
               ],
@@ -194,7 +197,8 @@ class _SwipeFeedPageState extends State<SwipeFeedPage> with TickerProviderStateM
         child: Text(
           //name,
           city.name,
-          style: TextStyle(fontSize: 16.0, color: Colors.black),
+          style: TextStyle(fontSize: 16.0, color: Colors.black,                     fontFamily: 'Universal',
+          ),
         ),
       ),
     );
@@ -208,7 +212,7 @@ class _SwipeFeedPageState extends State<SwipeFeedPage> with TickerProviderStateM
         children: <Widget>[
           Text(
             "87\% Match",
-            style: TextStyle(fontSize: 16.0, color: Colors.black),
+            style: TextStyle(fontSize: 16.0, color: Colors.black,                     fontFamily: 'Universal',),
           ),
           SizedBox(
             width: 8.0,
@@ -219,8 +223,9 @@ class _SwipeFeedPageState extends State<SwipeFeedPage> with TickerProviderStateM
           Text(
             "Your Highest City Match",
             style: TextStyle(
+              fontFamily: 'Sanford',
               fontSize: 12.0,
-              color: Colors.blue[700],
+              color: Colors.grey[500],
             ),
           ),
         ],
@@ -235,15 +240,16 @@ class _SwipeFeedPageState extends State<SwipeFeedPage> with TickerProviderStateM
         children: <Widget>[
           Icon(
             Icons.local_offer,
-            color: Colors.grey[500],
+            color: Colors.black,
           ),
           SizedBox(
             width: 12.0,
           ),
           Text(
-            "#Young #Hot #Seasonal #Lakes #GoodVibes",
+            "#Young #Hot #Seasonal",
             style: TextStyle(
-              color: Colors.grey[500],
+              fontFamily: 'Universal',
+              color: Colors.black,
             ),
           ),
         ],
@@ -261,7 +267,7 @@ class _SwipeFeedPageState extends State<SwipeFeedPage> with TickerProviderStateM
             children: <Widget>[
               Icon(
                 Icons.straighten,
-                color: Colors.grey[600],
+                color: Colors.black,
               ),
               SizedBox(
                 width: 12.0,
@@ -269,7 +275,8 @@ class _SwipeFeedPageState extends State<SwipeFeedPage> with TickerProviderStateM
               Text(
                 "Population: 422,000",
                 style: TextStyle(
-                  color: Colors.grey[600],
+                  fontFamily: 'Universal',
+                  color: Colors.black,
                 ),
               ),
             ],
@@ -292,6 +299,7 @@ class _SwipeFeedPageState extends State<SwipeFeedPage> with TickerProviderStateM
                 child: Text(
                   "Description",
                   style: TextStyle(
+                    fontFamily: 'Universal',
                     color: Colors.black,
                   ),
                 ),
@@ -300,6 +308,7 @@ class _SwipeFeedPageState extends State<SwipeFeedPage> with TickerProviderStateM
                 child: Text(
                   "Companies",
                   style: TextStyle(
+                    fontFamily: 'Universal',
                     color: Colors.black,
                   ),
                 ),
@@ -308,20 +317,22 @@ class _SwipeFeedPageState extends State<SwipeFeedPage> with TickerProviderStateM
           ),
           Container(
             padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 6.0),
-            height: 60.0,
+            height: 120.0,
             child: TabBarView(
               controller: tabController,
               children: <Widget>[
                 Text(
                   city.description,
                   style: TextStyle(
-                    color: Colors.black,
+                    fontFamily: 'Sanford',
+                    color: Colors.black
                   ),
                 ),
                 Text(
-                  "Great Place to live",
+                  "3M \nUnited Health Group \nGeneral Mills \nTarget \nBest Buy",
                   style: TextStyle(
                     color: Colors.black,
+                    fontFamily: 'Sanford',
                   ),
                 )
               ],
@@ -337,9 +348,10 @@ class _SwipeFeedPageState extends State<SwipeFeedPage> with TickerProviderStateM
         left: 12.0,
       ),
       child: Text(
-        "Tax Information",
+        "Finanical Information",
         style: TextStyle(
-          color: Colors.grey[800],
+          fontFamily: 'Universal',
+          color: Colors.black,
         ),
       ),
     );
@@ -350,9 +362,10 @@ class _SwipeFeedPageState extends State<SwipeFeedPage> with TickerProviderStateM
         left: 12.0,
       ),
       child: Text(
-        "No income Tax",
+        "Income tax: 5-10\% \nProperty Tax: 1.17\% \nAverage Salary: \$62,000",
         style: TextStyle(
-          color: Colors.grey[600],
+          fontFamily: 'Sanford',
+          color: Colors.black,
         ),
       ),
     );
@@ -365,7 +378,8 @@ class _SwipeFeedPageState extends State<SwipeFeedPage> with TickerProviderStateM
       child: Text(
         "Additonal Info",
         style: TextStyle(
-          color: Colors.grey[800],
+          fontFamily: 'Universal',
+          color: Colors.black,
         ),
       ),
     );
@@ -376,9 +390,10 @@ class _SwipeFeedPageState extends State<SwipeFeedPage> with TickerProviderStateM
         left: 12.0,
       ),
       child: Text(
-        "Friendly People",
+        "Places to Live: Uptown, Downtown\nCulture: Young, Trendy, Growing",
         style: TextStyle(
-          color: Colors.grey[600],
+          fontFamily: 'Sanford',
+          color: Colors.black,
         ),
       ),
     );

@@ -59,9 +59,23 @@ class ChatScreenState extends State<ChatScreen> {
       yeet = false;
     }
     return Scaffold(
-      appBar: AppBar(
-
-      ),
+        appBar: AppBar(
+          centerTitle: true ,
+          title: new Padding(
+            child: Image.asset('assets/Homwords.png', scale: 0.5),
+            padding: EdgeInsets.all(8.0),
+          ),
+          backgroundColor: Color.fromRGBO(36, 135, 195, 1.0),
+          leading: new IconButton
+        (
+        onPressed: () {
+          yeet = true;
+      Navigator.pop(
+          context
+      );                },
+    icon: new Icon(Icons.arrow_back, color: Color.fromRGBO(255, 120, 0, 1.0))
+    ),
+        ),
       body: Column(
         children: <Widget>[
           new Flexible(
